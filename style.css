@@ -17,3 +17,6 @@ input{background:var(--bg);color:var(--tx);border:1px solid var(--line);border-r
 .md{line-height:1.6}.md table{margin:10px 0}.md h1{font-size:22px}.md h2{margin-top:20px}.brief{margin-bottom:16px}.brief summary{cursor:pointer;font-weight:600;font-size:16px}
 .saved{color:var(--up);margin-left:10px}svg text{fill:var(--mu);font-size:11px}
 @media(max-width:760px){#app{flex-direction:column}aside{width:auto;height:auto;position:static}main{padding:16px}}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:14px}select{background:var(--bg);color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:14px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}.seg button{background:transparent;color:var(--mu);border-radius:0;padding:7px 12px}.seg button.on{background:var(--ac);color:#fff}
+.pill.est{background:#d2992226;color:#d29922}.perfhead{margin-bottom:6px}.perfhead .big{margin-right:8px}

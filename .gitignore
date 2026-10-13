@@ -3,6 +3,7 @@
 !app.js
 !style.css
 !data.enc.json
+!hist.enc.json
 !robots.txt
 !.nojekyll
 !.gitignore
