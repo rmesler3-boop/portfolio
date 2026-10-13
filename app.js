@@ -55,7 +55,7 @@ P.holdings=async()=>{const d=await api('/api/holdings');window._h=d;
  `};
 // ---- performance ----
 const DAYMS=864e5,dms=d=>Date.parse(d+'T20:00:00Z');
-function dailyWithToday(P,a,h){const k=pkey(a,h);let s=(P.daily?.[k]||[]).map(([d,v])=>[d,v]);if(k.startsWith('TSP_')){const t=P.tsp?.[h.ticker];if(t?.estimated&&(!s.length||t.date>s.at(-1)[0]))s.push([t.date,t.price])}return s}
+function dailyWithToday(P,a,h){const k=pkey(a,h);let s=(P.daily?.[k]||[]).map(([d,v])=>[d,v]);if(k.startsWith('TSP_')){const t=P.tsp?.[h.ticker];if(t?.estimated&&(!s.length||t.date>s.at(-1)[0]))s.push([t.date,t.price])}else{const q=P.quotes?.[k];if(q){if(s.length&&s.at(-1)[0]===q.date)s[s.length-1]=[q.date,q.price];else if(!s.length||q.date>s.at(-1)[0])s.push([q.date,q.price])}}return s}
 function intraday(P,a,h){const k=pkey(a,h),dl=dailyWithToday(P,a,h);let pts=k.startsWith('TSP_')?(P.tsp?.[h.ticker]?.intraday||[]):(P.intraday?.[k]||[]);
  const last=dl.at(-1);if(!pts.length){return dl.slice(-2).map(([d,v])=>[dms(d),v])}
  const today=new Date(pts.at(-1)[0]*1000).toLocaleDateString('en-CA',{timeZone:'America/New_York'}),prev=dl.filter(x=>x[0]<today).at(-1);
